@@ -1,0 +1,15 @@
+name: "SSH Runner"
+description: "Runs bash commands in remote server via SSH"
+inputs:
+  commands:
+    description: 'Commands to run on remote'
+    required: true
+  arguments: &args
+    description: 'Arguments passed in order to the script'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.commands }}
+    << : *args
