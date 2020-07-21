@@ -1,7 +1,7 @@
 on: [push]
 
 jobs:
-  try-ssh-commans:
+  try-ssh-commands:
     runs-on: ubuntu-latest
     name: SSH MY_TEST
     steps:

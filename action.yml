@@ -1,10 +1,6 @@
 name: "SSH Runner"
 description: "Runs bash commands in remote server via SSH"
 inputs:
-  commands:
-    description: 'Commands to run on remote'
-  arguments:
-    description: 'Arguments passed in order to the script'
   ssh_key:
     description: 'SSH Key'
   known_hosts:
