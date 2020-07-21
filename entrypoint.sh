@@ -1,8 +1,8 @@
 #!/bin/sh
 
 mkdir -p ~/.ssh/
-echo "$1" > ../private.key
-chmod 600 ../private.key
+echo "$1" > ~/.ssh/private.key
+chmod 600 ~/.ssh/private.key
 echo "$2" > ~/.ssh/known_hosts
 
 ls ~/.ssh/
