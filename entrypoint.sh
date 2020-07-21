@@ -12,5 +12,7 @@ ssh-keygen -y -e -f ~/.ssh/private.key
 ssh-keyscan 164.90.177.64
 
 ssh -i ~/.ssh/private.key -tt johannes@164.90.177.64 "echo test > testfile1"
+echo "known hosts file:"
+cat ~/.ssh/known_hosts
 # ssh -i ../private.key -tt johannes@164.90.177.64 'bash -s' < $(pwd)/ssh_script.sh arg1
 # cat ../private.key
