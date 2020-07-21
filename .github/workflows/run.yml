@@ -6,7 +6,7 @@ jobs:
     name: SSH MY_TEST
     steps:
       - name: MY_TEST
-        uses: /ekahannes/ssh-commands
+        uses: /ekahannes/ssh-commands@v1
         with:
           commands: |
             echo $1
