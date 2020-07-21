@@ -3,12 +3,15 @@ description: "Runs bash commands in remote server via SSH"
 inputs:
   commands:
     description: 'Commands to run on remote'
-    required: true
   arguments:
     description: 'Arguments passed in order to the script'
-    required: true
+  ssh_key:
+    description: 'SSH Key'
+  known_hosts:
+    description: 'Known Hosts'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.commands }}
+    - ${{ inputs.ssh_key }}
+    - ${{ inputs.known_hosts }}
