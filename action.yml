@@ -4,12 +4,11 @@ inputs:
   commands:
     description: 'Commands to run on remote'
     required: true
-  arguments: &args
+  arguments:
     description: 'Arguments passed in order to the script'
     required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    << : *args
     - ${{ inputs.commands }}
