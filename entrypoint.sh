@@ -9,7 +9,7 @@ ls ~/.ssh/
 pwd
 echo "done"
 ssh-keygen -y -e -f ~/.ssh/private.key
-ssh-keyscan server-ip
+ssh-keyscan 164.90.177.64
 
 ssh -i ~/.ssh/private.key -o "StrictHostKeyChecking no" -tt johannes@164.90.177.64 "echo test > testfile1"
 # ssh -i ../private.key -tt johannes@164.90.177.64 'bash -s' < $(pwd)/ssh_script.sh arg1
