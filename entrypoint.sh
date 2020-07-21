@@ -1,9 +1,9 @@
 #!/bin/sh
 
 mkdir -p ~/.ssh/
-echo "${secrets.SSH_PRIVATE_KEY}" > ../private.key
+echo ${secrets.SSH_PRIVATE_KEY} > ../private.key
 sudo chmod 600 ../private.key
-echo "${secrets.SSH_KNOWN_HOSTS_DEV}" > ~/.ssh/known_hosts
+echo ${secrets.SSH_KNOWN_HOSTS_DEV} > ~/.ssh/known_hosts
 
 echo $1 > ssh_script.sh
 
