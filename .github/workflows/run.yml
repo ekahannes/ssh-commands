@@ -1,9 +1,5 @@
 on: [push]
 
-env:
-  SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
-  SSH_KNOWN_HOSTS: ${{secrets.SSH_KNOWN_HOSTS}}
-
 jobs:
   try-ssh-commans:
     runs-on: ubuntu-latest
