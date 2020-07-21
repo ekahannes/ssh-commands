@@ -1,10 +1,10 @@
 #!/bin/sh
 
 printenv
-# mkdir -p ~/.ssh/
-# echo ${secrets.SSH_PRIVATE_KEY} > ../private.key
-# sudo chmod 600 ../private.key
-# echo ${secrets.SSH_KNOWN_HOSTS_DEV} > ~/.ssh/known_hosts
+mkdir -p ~/.ssh/
+echo $SSH_PRIVATE_KEY > ../private.key
+sudo chmod 600 ../private.key
+echo $SSH_KNOWN_HOSTS_DEV > ~/.ssh/known_hosts
 
 echo $1 > ssh_script.sh
 
