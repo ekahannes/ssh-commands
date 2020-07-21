@@ -1,5 +1,7 @@
 #!/bin/sh
 
+apt update && apt install openssh-client -y
+
 mkdir -p ~/.ssh/
 echo "$1" > ~/.ssh/private.key
 chmod 600 ~/.ssh/private.key
