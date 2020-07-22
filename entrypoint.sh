@@ -19,6 +19,6 @@ done
 # write commands script to local file
 echo "eval $STR_ARGS;${3}exit; eval $STR_UNSET" > ssh_script.sh
 chmod +x ssh_script.sh
-
+pwd
 # execute commands script on remote via ssh
 ssh -i ~/.ssh/private.key -o UserKnownHostsFile=$(pwd)/.ssh/known_hosts -tt johannes@164.90.177.64 'bash -s' < $(pwd)/ssh_script.sh
