@@ -34,7 +34,7 @@ echo $STR_UNSET
 # done
 # echo ${myarray[ARG]}
 
-echo "eval $STR_ARGS;${3}exit; eval" > ssh_script.sh
+echo "eval $STR_ARGS;${3}exit; eval $STR_UNSET" > ssh_script.sh
 chmod +x ssh_script.sh
 # ssh -i ~/.ssh/private.key -o UserKnownHostsFile=$HOME/.ssh/known_hosts -tt johannes@164.90.177.64 "eval $STR_ARGS"
 ssh -i ~/.ssh/private.key -o UserKnownHostsFile=$HOME/.ssh/known_hosts -tt johannes@164.90.177.64 'bash -s' < $(pwd)/ssh_script.sh test

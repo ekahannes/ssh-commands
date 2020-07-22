@@ -1,7 +1,7 @@
 on: [push]
 
 env:
-  ARG1: arg1
+  ARG1: finally_working
   ARG2: arg2
 
 jobs:
@@ -19,4 +19,4 @@ jobs:
           env_vars: ${{toJSON(env)}}
           commands: |
             echo ${{ env.ARG }} > testfile2
-            echo "$1" > testfile3
+            echo "$ARG1" > testfile3
