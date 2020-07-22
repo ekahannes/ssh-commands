@@ -7,6 +7,8 @@ inputs:
     description: 'Known Hosts'
   commands:
     description: 'Command to run'
+  env_vars:
+    desription: 'Environment Variables that should be available in the remote'
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -14,3 +16,4 @@ runs:
     - ${{ inputs.ssh_key }}
     - ${{ inputs.known_hosts }}
     - ${{ inputs.commands }}
+    - ${{ inputs.env_vars }}
