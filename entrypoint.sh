@@ -19,7 +19,7 @@ declare -A myarray
 while IFS="=" read -r key value
 do
     myarray[$key]="$value"
-done < <(jq -r 'to_entries|map("(.key)=(.value)")|.[]' <<< "$4")
+done < <(jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]" <<< "$4")
 
 echo myarray
 
