@@ -13,7 +13,8 @@ ssh-keyscan 164.90.177.64
 
 ssh -i ~/.ssh/private.key -o UserKnownHostsFile=/github/home/.ssh/known_hosts -tt johannes@164.90.177.64 "echo test > testfile1"
 echo "known hosts"
-cat ~/.ssh/known_hosts
-wc -m ~/.ssh/known_hosts
+# cat ~/.ssh/known_hosts
+# wc -m ~/.ssh/known_hosts
+cat /etc/ssh/ssh_config
 # ssh -i ../private.key  -o "StrictHostKeyChecking no" -tt johannes@164.90.177.64 'bash -s' < $(pwd)/ssh_script.sh arg1
 # cat ../private.key
