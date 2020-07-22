@@ -12,11 +12,9 @@ jobs:
         uses: actions/checkout@v2
       - name: MY_TEST
         uses: ./
-        env:
-          ARG: arg3
         with:
           ssh_key: ${{secrets.SSH_PRIVATE_KEY}}
           known_hosts: ${{secrets.SSH_KNOWN_HOSTS}}
-          env_vars: arg4
+          env_vars: "${{ env.ARG }} arg4"
           commands: |
             echo "$1" > testfile2

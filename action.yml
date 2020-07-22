@@ -16,4 +16,4 @@ runs:
     - ${{ inputs.ssh_key }}
     - ${{ inputs.known_hosts }}
     - ${{ inputs.commands }}
-    - ${ ARG }
+    - ${{ inputs.env_vars }}
