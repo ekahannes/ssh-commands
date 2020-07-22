@@ -20,5 +20,7 @@ done
 echo "eval $STR_ARGS;${3}exit; eval $STR_UNSET" > ssh_script.sh
 chmod +x ssh_script.sh
 
+cat /github/home/.ssh/known_hosts
+
 # execute commands script on remote via ssh
 ssh -i /github/home/.ssh/private.key -o UserKnownHostsFile=/github/home/.ssh/known_hosts -tt johannes@164.90.177.64 'bash -s' < $(pwd)/ssh_script.sh
