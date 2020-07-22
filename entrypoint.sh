@@ -11,15 +11,19 @@ chmod +x ssh_script.sh
 # jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]" <<< "$4"
 # printenv
 # jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]" <<< "$4"
-# for s in $(jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]" <<< "$4"); do
-#     export $s
-# done
 
-declare -A myarray
-while IFS="=" read -r key value
-do
-    myarray[$key]="$value"
-done < <(jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]" <<< "$4")
+STR_ARGS=""
+for s in $(jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]" <<< "$4"); do
+    # export $s
+    # STR_ARGS="${STR_ARGS}"
+    echo $s
+done
+
+# declare -A myarray
+# while IFS="=" read -r key value
+# do
+#     myarray[$key]="$value"
+# done < <(jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]" <<< "$4")
 
 # echo $myarray
 

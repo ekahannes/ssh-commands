@@ -1,7 +1,8 @@
 on: [push]
 
 env:
-  ARG: arg3
+  ARG1: arg1
+  ARG2: arg2
 
 jobs:
   try-ssh-commands:
