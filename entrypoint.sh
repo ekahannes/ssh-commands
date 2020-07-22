@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 mkdir -p ~/.ssh/
 echo "$1" > ~/.ssh/private.key
