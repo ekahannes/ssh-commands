@@ -10,7 +10,12 @@ chmod +x ssh_script.sh
 
 # jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]" <<< "$4"
 # printenv
-jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]" <<< "$4"
+# jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]" <<< "$4"
+for s in $(jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]" <<< "$4"); do
+    export $s
+done
+
+printenv
 
 ssh -i ~/.ssh/private.key -o UserKnownHostsFile=$HOME/.ssh/known_hosts -tt johannes@164.90.177.64 'bash -s' < $(pwd)/ssh_script.sh
 # ssh -i ../private.key  -o "StrictHostKeyChecking no" -tt johannes@164.90.177.64 'bash -s' < $(pwd)/ssh_script.sh arg1
