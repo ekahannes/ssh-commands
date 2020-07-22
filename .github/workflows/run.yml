@@ -14,3 +14,4 @@ jobs:
           known_hosts: ${{secrets.SSH_KNOWN_HOSTS}}
           commands: |
             echo "$1" > testfile2
+            exit
