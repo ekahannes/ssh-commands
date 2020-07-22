@@ -12,3 +12,5 @@ jobs:
         with:
           ssh_key: ${{secrets.SSH_PRIVATE_KEY}}
           known_hosts: ${{secrets.SSH_KNOWN_HOSTS}}
+          commands: |
+            echo "text" > testfile2

@@ -5,9 +5,12 @@ inputs:
     description: 'SSH Key'
   known_hosts:
     description: 'Known Hosts'
+  commands:
+    description: 'Command to run'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.ssh_key }}
     - ${{ inputs.known_hosts }}
+    - ${{ inputs.commands }}
