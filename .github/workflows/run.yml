@@ -3,6 +3,8 @@ on: [push]
 env:
   ARG1: finally_working
   ARG2: arg2
+  SSH_USERNAME: johannes
+  SERVER_IP: 164.90.177.64
 
 jobs:
   try-ssh-commands:

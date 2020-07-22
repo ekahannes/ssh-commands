@@ -11,6 +11,7 @@ STR_ARGS="export"
 STR_UNSET="unset"
 for s in $(jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]" <<< "$4"); do
     # export $s
+    export $s
     STR_ARGS="${STR_ARGS} $s"
     IFS='=' read -r key val <<< "$s"
     STR_UNSET="${STR_UNSET} $key"
@@ -20,7 +21,5 @@ done
 echo "eval $STR_ARGS;${3}exit; eval $STR_UNSET" > ssh_script.sh
 chmod +x ssh_script.sh
 
-cat /github/home/.ssh/known_hosts
-
 # execute commands script on remote via ssh
-ssh -i /github/home/.ssh/private.key -o UserKnownHostsFile=/github/home/.ssh/known_hosts -tt johannes@164.90.177.64 'bash -s' < $(pwd)/ssh_script.sh
+ssh -i /github/home/.ssh/private.key -o UserKnownHostsFile=/github/home/.ssh/known_hosts -tt ${SSH_USERNAME}@${SERVER_IP} 'bash -s' < $(pwd)/ssh_script.sh
