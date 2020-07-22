@@ -20,3 +20,4 @@ jobs:
           commands: |
             echo ${{ env.ARG }} > testfile2
             echo arg2 > testfile3
+            eval "$1"
