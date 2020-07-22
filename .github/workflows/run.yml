@@ -1,5 +1,8 @@
 on: [push]
 
+env:
+  ARG: arg3
+
 jobs:
   try-ssh-commands:
     runs-on: ubuntu-latest
@@ -12,6 +15,6 @@ jobs:
         with:
           ssh_key: ${{secrets.SSH_PRIVATE_KEY}}
           known_hosts: ${{secrets.SSH_KNOWN_HOSTS}}
-          env_vars: arg2
+          env_vars: "$ARG arg4"
           commands: |
             echo "$1" > testfile2
