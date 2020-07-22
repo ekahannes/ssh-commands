@@ -15,7 +15,7 @@ jobs:
         with:
           ssh_key: ${{secrets.SSH_PRIVATE_KEY}}
           known_hosts: ${{secrets.SSH_KNOWN_HOSTS}}
-          env_vars: ""
+          env_vars: ${{toJSON(env)}}
           commands: |
             echo ${{ env.ARG }} > testfile2
             echo arg4 > testfile3
