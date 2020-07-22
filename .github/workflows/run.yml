@@ -19,4 +19,4 @@ jobs:
           known_hosts: ${{secrets.SSH_KNOWN_HOSTS}}
           env_vars: arg4
           commands: |
-            echo "$ARG" > testfile2
+            echo "$1" > testfile2
