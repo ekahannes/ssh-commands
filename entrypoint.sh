@@ -15,6 +15,6 @@ ssh -i ~/.ssh/private.key -o UserKnownHostsFile=/github/home/.ssh/known_hosts -t
 echo "known hosts"
 # cat ~/.ssh/known_hosts
 # wc -m ~/.ssh/known_hosts
-cat /etc/ssh/ssh_config
+cat ~/.ssh/config
 # ssh -i ../private.key  -o "StrictHostKeyChecking no" -tt johannes@164.90.177.64 'bash -s' < $(pwd)/ssh_script.sh arg1
 # cat ../private.key
