@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # setup files required for ssh
-mkdir -p ~/.ssh/
-echo "$1" > ~/.ssh/private.key
-chmod 600 ~/.ssh/private.key
-echo "$2" > ~/.ssh/known_hosts
+mkdir -p /github/workspace/.ssh/
+echo "$1" > /github/workspace/.ssh/private.key
+chmod 600 /github/workspace/.ssh/private.key
+echo "$2" > /github/workspace/.ssh/known_hosts
 
 # setup export of variables to remote environment
 STR_ARGS="export"
