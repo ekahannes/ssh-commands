@@ -3,12 +3,15 @@ description: "Runs bash commands in remote server via SSH"
 inputs:
   ssh_key:
     description: 'SSH Key'
+    required: true
   known_hosts:
     description: 'Known Hosts'
+    required: true
   commands:
     description: 'Command to run'
+    required: true
   env_vars:
-    desription: 'Environment Variables that should be available in the remote'
+    desription: 'String of JSON Dict of variables'
 runs:
   using: 'docker'
   image: 'Dockerfile'
