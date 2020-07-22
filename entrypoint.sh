@@ -12,12 +12,12 @@ chmod +x ssh_script.sh
 # printenv
 # jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]" <<< "$4"
 
-STR_ARGS=""
+STR_ARGS="export "
 for s in $(jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]" <<< "$4"); do
     # export $s
-    # STR_ARGS="${STR_ARGS}"
-    echo $s
+    STR_ARGS="${STR_ARGS} $s"
 done
+echo $STR_ARGS
 
 # declare -A myarray
 # while IFS="=" read -r key value
@@ -33,5 +33,5 @@ done
 # done
 # echo ${myarray[ARG]}
 
-ssh -i ~/.ssh/private.key -o UserKnownHostsFile=$HOME/.ssh/known_hosts -tt johannes@164.90.177.64 'bash -s' < $(pwd)/ssh_script.sh "$(declare -p myarray)"
+ssh -i ~/.ssh/private.key -o UserKnownHostsFile=$HOME/.ssh/known_hosts -tt johannes@164.90.177.64 'bash -s' < $(pwd)/ssh_script.sh
 # ssh -i ../private.key  -o "StrictHostKeyChecking no" -tt johannes@164.90.177.64 'bash -s' < $(pwd)/ssh_script.sh arg1
