@@ -7,7 +7,7 @@ chmod 600 ~/.ssh/private.key
 echo "$2" > ~/.ssh/known_hosts
 
 # setup export of variables to remote environment
-STR_ARGS="export "
+STR_ARGS="export"
 STR_UNSET="unset"
 for s in $(jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]" <<< "$4"); do
     # export $s
@@ -15,8 +15,6 @@ for s in $(jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]" <<< "$4");
     IFS='=' read -r key val <<< "$s"
     STR_UNSET="${STR_UNSET} $key"
 done
-echo $STR_ARGS
-echo $STR_UNSET
 
 # write commands script to local file
 echo "eval $STR_ARGS;${3}exit; eval $STR_UNSET" > ssh_script.sh
