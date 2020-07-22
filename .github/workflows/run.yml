@@ -19,4 +19,4 @@ jobs:
           env_vars: ${{toJSON(env)}}
           commands: |
             echo ${{ env.ARG }} > testfile2
-            echo arg2 > testfile3
+            echo "$1" > testfile3
