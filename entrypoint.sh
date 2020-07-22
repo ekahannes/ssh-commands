@@ -30,7 +30,7 @@ echo $STR_ARGS
 # done
 # echo ${myarray[ARG]}
 
-echo "${STR_ARGS};${3}exit" > ssh_script.sh
+echo "eval ${STR_ARGS};${3}exit" > ssh_script.sh
 chmod +x ssh_script.sh
 
 ssh -i ~/.ssh/private.key -o UserKnownHostsFile=$HOME/.ssh/known_hosts -tt johannes@164.90.177.64 'bash -s' < $(pwd)/ssh_script.sh test
