@@ -13,18 +13,18 @@ STR_UNSET="unset"
 # UNPRETTY_JSON= $(echo "$4" | jq -c)
 # echo  "$(jq -r 'to_entries|map("\(.key)=\(.value)")|.[]' <<< "${4}")"
 STRING="$(jq -r 'to_entries|map("\(.key)=\(.value)")|.[]|tostring' <<< "${4}")"
-echo $STRING
+# echo $STRING
 # while IFS= read -r line; do
 #     echo "... $line ..."
 # done <<< "$STRING"
-# for s in $STRING; do
-#     export $s
-    # echo "${s}"
-    # export "${s}"
-    # STR_ARGS="${STR_ARGS} ${s}"
-    # IFS='=' read -r key val <<< "${s}"
-    # STR_UNSET="${STR_UNSET} $key"
-# done
+for s in $STRING; do
+    export $s
+    echo "${s}"
+    export "${s}"
+    STR_ARGS="${STR_ARGS} ${s}"
+    IFS='=' read -r key val <<< "${s}"
+    STR_UNSET="${STR_UNSET} $key"
+done
 
 # write commands script to local file
 echo "eval $STR_ARGS;${3}exit; eval $STR_UNSET" > ssh_script.sh
