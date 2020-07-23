@@ -13,10 +13,10 @@ STR_UNSET="unset"
 STRING=$(jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]" <<< "$4")
 for s in $STRING; do
     # export $s
-    echo "$s"
-    export "$s"
-    STR_ARGS="${STR_ARGS} $s"
-    IFS='=' read -r key val <<< "$s"
+    echo "$(s)"
+    export "$(s)"
+    STR_ARGS="${STR_ARGS} $(s)"
+    IFS='=' read -r key val <<< "$(s)"
     STR_UNSET="${STR_UNSET} $key"
 done
 
