@@ -11,16 +11,16 @@ STR_ARGS="export"
 STR_UNSET="unset"
 echo "$4" file.json
 # UNPRETTY_JSON= $(echo "$4" | jq -c)
-echo "$(jq -r 'to_entries|map("\(.key)=\(.value)")|.[]' <<< "${4}")"
-STRING=$(jq -r "to_entries|map(\"\(.key)=\(.value)\")|.[]" <<< "${4}")
-# for s in $STRING; do
+# echo "$(jq -r 'to_entries|map("\(.key)=\(.value)")|.[]' <<< "${4}")"
+STRING=$(jq -r 'to_entries|map("\(.key)=\(.value)")|.[]' <<< "${4}")
+for s in $STRING; do
     # export $s
-    # echo "${s}"
+    echo "${s}"
     # export "${s}"
     # STR_ARGS="${STR_ARGS} ${s}"
     # IFS='=' read -r key val <<< "${s}"
     # STR_UNSET="${STR_UNSET} $key"
-# done
+done
 
 # write commands script to local file
 echo "eval $STR_ARGS;${3}exit; eval $STR_UNSET" > ssh_script.sh
