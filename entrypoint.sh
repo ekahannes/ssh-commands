@@ -12,11 +12,11 @@ STR_UNSET="unset"
 # echo "$4" file.json
 # UNPRETTY_JSON= $(echo "$4" | jq -c)
 # echo  "$(jq -r 'to_entries|map("\(.key)=\(.value)")|.[]' <<< "${4}")"
-STRING="$(jq -r 'to_entries|map("\(.key)=\"\(.value)\"")|.[]' <<< "${4}")"
+STRING="$(jq -r 'to_entries|map("\(.key)=\(.value))|.[]' <<< "${4}")"
 # echo $STRING
 while IFS= read -r line; do
-    echo "$line"
-    export "${line}"
+    # echo "$line"
+    # export "${line}"
     STR_ARGS="${STR_ARGS} ${line}"
     # IFS='=' read -r key val <<< "${s}"
     # STR_UNSET="${STR_UNSET} $key"
@@ -35,4 +35,4 @@ echo "eval $STR_ARGS;${3}exit; eval $STR_UNSET" > ssh_script.sh
 chmod +x ssh_script.sh
 
 # execute commands script on remote via ssh
-ssh -i ~/.ssh/private.key -o UserKnownHostsFile=$HOME/.ssh/known_hosts -tt $(eval ${SSH_USERNAME})@$(eval ${SERVER_IP}) 'bash -s' < $(pwd)/ssh_script.sh
+ssh -i ~/.ssh/private.key -o UserKnownHostsFile=$HOME/.ssh/known_hosts -tt johannes@164.90.177.64 'bash -s' < $(pwd)/ssh_script.sh
