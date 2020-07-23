@@ -18,9 +18,9 @@ STRING=$(jq -r 'to_entries|map("\(.key)=\(.value)")|.[]' <<< "$4")
 # done
 while IFS= read -r line; do
   if [[ ! $line = *" "* ]]; then
-    export $s
-    STR_ARGS="${STR_ARGS} $s"
-    IFS='=' read -r key val <<< "$s"
+    export $line
+    STR_ARGS="${STR_ARGS} $line"
+    IFS='=' read -r key val <<< "$line"
     STR_UNSET="${STR_UNSET} $key"
   fi
 done <<< "$STRING"
