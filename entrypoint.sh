@@ -10,12 +10,6 @@ echo "$2" > ~/.ssh/known_hosts
 STR_ARGS="export"
 STR_UNSET="unset"
 STRING=$(jq -r 'to_entries|map("\(.key)=\(.value)")|.[]' <<< "$4")
-# for s in $(jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]" <<< "$4"); do
-#     export $s
-#     STR_ARGS="${STR_ARGS} $s"
-#     IFS='=' read -r key val <<< "$s"
-#     STR_UNSET="${STR_UNSET} $key"
-# done
 while IFS= read -r line; do
   if [[ ! $line = *" "* ]]; then
     export $line
