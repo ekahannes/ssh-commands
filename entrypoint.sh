@@ -11,7 +11,7 @@ STR_ARGS="export"
 STR_UNSET="unset"
 echo "$4" > file.json
 # UNPRETTY_JSON= $(echo "$4" | jq -c)
-echo "$(jq -r 'to_entries|map("(.key)=(.value)")|.[]' file.json)"
+echo "$(jq -r "to_entries|map(\"(.key)=(.value)\")|.[]" file.json)"
 STRING=$(jq -r "to_entries|map(\"\(.key)=\(.value)\")|.[]" <<< "${4}")
 # for s in $STRING; do
     # export $s
