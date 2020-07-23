@@ -14,11 +14,12 @@ STR_UNSET="unset"
 # echo  "$(jq -r 'to_entries|map("\(.key)=\(.value)")|.[]' <<< "${4}")"
 STRING="$(jq -r 'to_entries|map("\(.key)=\(.value)")|.[]' <<< "${4}")"
 # echo $STRING
-while IFS= read -r s; do
-    export "${s}"
-    STR_ARGS="${STR_ARGS} ${s}"
-    IFS='=' read -r key val <<< "${s}"
-    STR_UNSET="${STR_UNSET} $key"
+while IFS= read -r line; do
+  echo "$line"
+    # export "${s}"
+    # STR_ARGS="${STR_ARGS} ${s}"
+    # IFS='=' read -r key val <<< "${s}"
+    # STR_UNSET="${STR_UNSET} $key"
 done <<< "$STRING"
 # for s in $STRING; do
 #     echo "${s}"
