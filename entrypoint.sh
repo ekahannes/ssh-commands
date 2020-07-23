@@ -31,7 +31,7 @@ done <<< "$STRING"
 echo $STR_ARGS
 
 # write commands script to local file
-echo "eval $STR_ARGS;${3}exit; eval $STR_UNSET" > ssh_script.sh
+echo "eval \"$STR_ARGS\";${3}exit; eval $STR_UNSET" > ssh_script.sh
 chmod +x ssh_script.sh
 
 # execute commands script on remote via ssh
