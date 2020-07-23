@@ -12,7 +12,7 @@ STR_UNSET="unset"
 echo "$4" file.json
 # UNPRETTY_JSON= $(echo "$4" | jq -c)
 # echo "$(jq -r 'to_entries|map("\(.key)=\(.value)")|.[]' <<< "${4}")"
-STRING="$(jq -r 'to_entries|map("\(.key)=\(.value)")' <<< "${4}")"
+STRING="$(jq -r 'to_entries|map("\(.key)=\(.value)"|.[]|map(\".\"))' <<< "${4}")"
 # echo $STRING
 for s in $STRING; do
     export $s
