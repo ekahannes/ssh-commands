@@ -10,7 +10,7 @@ echo "$2" > ~/.ssh/known_hosts
 STR_ARGS="export"
 STR_UNSET="unset"
 # UNPRETTY_JSON= $(echo "$4" | jq -c)
-STRING=$(jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]" <<< "$4")
+STRING=$(jq -r "fromjson|to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]" <<< "${4}")
 for s in $STRING; do
     # export $s
     echo "${s}"
