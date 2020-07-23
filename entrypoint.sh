@@ -15,9 +15,9 @@ STR_UNSET="unset"
 STRING="$(jq -r 'to_entries|map("\(.key)=\(.value)")|.[]' <<< "${4}")"
 # echo $STRING
 while IFS= read -r line; do
-  echo "$line"
+    echo "$line"
     export "${line}"
-    # STR_ARGS="${STR_ARGS} ${s}"
+    STR_ARGS="${STR_ARGS} ${line}"
     # IFS='=' read -r key val <<< "${s}"
     # STR_UNSET="${STR_UNSET} $key"
 done <<< "$STRING"
