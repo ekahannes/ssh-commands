@@ -9,7 +9,7 @@ echo "$2" > ~/.ssh/known_hosts
 # setup export of variables to remote environment
 STR_ARGS="export"
 STR_UNSET="unset"
-STRING=$(jq -r -arg str "$(<$4)" '$str|to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]')
+STRING=$(jq -r --arg str "$(<$4)" '$str|to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]')
 for s in $STRING; do
     # export $s
     echo $s
