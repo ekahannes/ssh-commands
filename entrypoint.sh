@@ -14,9 +14,9 @@ echo "$4" file.json
 # echo "$(jq -r 'to_entries|map("\(.key)=\(.value)")|.[]' <<< "${4}")"
 STRING="$(jq -r 'to_entries|map("\(.key)=\(.value)"|.[])' <<< "${4}")"
 echo $STRING
-while IFS= read -r line; do
-    echo "... $line ..."
-done <<< "$STRING"
+# while IFS= read -r line; do
+#     echo "... $line ..."
+# done <<< "$STRING"
 # for s in $STRING; do
 #     export $s
     # echo "${s}"
