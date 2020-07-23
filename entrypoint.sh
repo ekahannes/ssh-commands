@@ -35,4 +35,4 @@ echo "eval $STR_ARGS;${3}exit; eval $STR_UNSET" > ssh_script.sh
 chmod +x ssh_script.sh
 
 # execute commands script on remote via ssh
-ssh -i ~/.ssh/private.key -o UserKnownHostsFile=$HOME/.ssh/known_hosts -tt ${SSH_USERNAME}@${SERVER_IP} 'bash -s' < $(pwd)/ssh_script.sh
+ssh -i ~/.ssh/private.key -o UserKnownHostsFile=$HOME/.ssh/known_hosts -tt "${SSH_USERNAME}@${SERVER_IP}" 'bash -s' < $(pwd)/ssh_script.sh
