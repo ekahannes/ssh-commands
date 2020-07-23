@@ -17,7 +17,7 @@ STRING=$(jq -r 'to_entries|map("\(.key)=\(.value)")|.[]' <<< "$4")
 #     STR_UNSET="${STR_UNSET} $key"
 # done
 while IFS= read -r line; do
-  [[ $string = *" "* ]]; then
+  if [[ $string = *" "* ]]; then
     echo $line
   fi
 done <<< "$STRING"
