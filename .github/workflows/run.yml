@@ -5,6 +5,7 @@ env:
   ARG2: arg2
   SSH_USERNAME: johannes
   SERVER_IP: 164.90.177.64
+  SSH_KNOWN_HOSTS: ecdsa-sha2-nistp256 90asdf9asdf0990
 
 jobs:
   try-ssh-commands:
