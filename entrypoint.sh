@@ -11,6 +11,7 @@ STR_ARGS="export"
 STR_UNSET="unset"
 for s in $(jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]" <<< "$4"); do
     # export $s
+    echo $s
     export "$s"
     STR_ARGS="${STR_ARGS} $s"
     IFS='=' read -r key val <<< "$s"
